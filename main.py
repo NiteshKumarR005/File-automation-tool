@@ -31,6 +31,7 @@ def sort_files(folder_path):
     video_folder = "Videos"
 
     files = os.listdir(folder_path)
+    
     for file in files:
         full_path = os.path.join(folder_path, file)
         extension = os.path.splitext(file)[1]
@@ -64,7 +65,19 @@ def sort_files(folder_path):
 
 
 def cleanup_files(folder_path):
-    pass
+    cleanup_extensions = [".tmp", ".bak"]
+    
+    files = os.listdir(folder_path)
+    
+    for file in files:
+        full_path = os.path.join(folder_path, file)
+        extensions = os.path.splitext(file)[1]
+        
+        if extensions in cleanup_extensions:
+            os.remove(full_path)
+            print(file + " deleted.")
+        else:
+            print("No files necessary for cleanup.")
 
 
 def display():
@@ -87,6 +100,10 @@ try:
         folder_path = input("Enter folder name: ")
         sort_files(folder_path)
 
+    elif choice == "3":
+        folder_path = input("Enter folder name: ")
+        cleanup_files(folder_path)
+    
     else:
         print("Invalid choice.")
                 
