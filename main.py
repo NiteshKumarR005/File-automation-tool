@@ -31,17 +31,19 @@ def sort_files(folder_path):
         extension = os.path.splitext(file)[1]
         
         if extension == ".png":
-            if not os.path.isfile(image_folder):
-                os.makedirs(image_folder)
+            if not os.path.exists(image_folder):
+                os.mkdir(image_folder)
             else:
                 print("Folder already exists.")
             shutil.move(full_path, image_folder)
+            print(f"{file} moved to {image_folder}")
         elif extension == ".txt":
-            if not os.path.isfile(document_folder):
-                os.makedirs(document_folder)
+            if not os.path.exists(document_folder):
+                os.mkdir(document_folder)
             else:
                 print("Folder already exists.")
             shutil.move(full_path, document_folder)
+            print(f"{file} moved to {document_folder}")
         else:
             print("File type not supported.")
 
