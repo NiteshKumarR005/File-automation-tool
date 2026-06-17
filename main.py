@@ -25,6 +25,7 @@ def sort_files(folder_path):
     image_extensions = [".png", ".jpg", ".jpeg"]
     document_extensions = [".txt", ".pdf", ".docx"]
     video_extensions = [".mp4", ".mkv"]
+    
     image_folder = "Images"
     document_folder = "Documents"
     video_folder = "Videos"
@@ -60,6 +61,10 @@ def sort_files(folder_path):
             
         else:
             print("File type not supported.")
+
+
+def cleanup_files(folder_path):
+    pass
 
 
 def display():
