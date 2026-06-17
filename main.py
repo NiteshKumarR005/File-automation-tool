@@ -22,38 +22,54 @@ def rename_files(folder_path):
 
 
 def sort_files(folder_path):
+    image_extensions = [".png", ".jpg", ".jpeg"]
+    document_extensions = [".txt", ".pdf", ".docx"]
+    video_extensions = [".mp4", ".mkv"]
     image_folder = "Images"
     document_folder = "Documents"
-        
+    video_folder = "Videos"
+
     files = os.listdir(folder_path)
     for file in files:
         full_path = os.path.join(folder_path, file)
         extension = os.path.splitext(file)[1]
         
-        if extension == ".png":
+        if extension in image_extensions:
             if not os.path.exists(image_folder):
                 os.mkdir(image_folder)
             else:
                 print("Folder already exists.")
             shutil.move(full_path, image_folder)
             print(f"{file} moved to {image_folder}")
-        elif extension == ".txt":
+            
+        elif extension in document_extensions:
             if not os.path.exists(document_folder):
                 os.mkdir(document_folder)
             else:
                 print("Folder already exists.")
             shutil.move(full_path, document_folder)
             print(f"{file} moved to {document_folder}")
+            
+        elif extension in video_extensions:
+            if not os.path.exists(video_folder):
+                os.mkdir(video_folder)
+            else:
+                print("Folder already exists.")
+            shutil.move(full_path, video_folder)
+            print(f"{file} moved to {video_folder}")
+            
         else:
             print("File type not supported.")
 
 
-print("----- File Automation Tool -----")
-print("1. Rename Files")
-print("2. Sort Files")
-print("3. Clean Files")
+def display():
+    print("----- File Automation Tool -----")
+    print("1. Rename Files")
+    print("2. Sort Files")
+    print("3. Clean Files")
 
 try:
+    display()
     choice = input("Enter your choice: ")
     print("You selected: ", choice)
 
