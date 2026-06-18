@@ -106,19 +106,27 @@ try:
     display()
     choice = input("Enter your choice: ")
     print("You selected: ", choice)
-
-
+    
     if choice == "1":
         folder_path = input("Enter folder name: ")
-        rename_files(folder_path)
+        if not os.listdir(folder_path) == []:
+            rename_files(folder_path)
+        else:
+            print("Folder is empty.")
     
     elif choice == "2":
         folder_path = input("Enter folder name: ")
-        sort_files(folder_path)
+        if not os.listdir(folder_path) == []:
+            sort_files(folder_path)
+        else:
+            print("Folder is empty.")
 
     elif choice == "3":
         folder_path = input("Enter folder name: ")
-        cleanup_files(folder_path)
+        if not os.listdir(folder_path) == []:
+            cleanup_files(folder_path)
+        else:
+            print("Folder is empty.")
     
     else:
         print("Invalid choice.")
