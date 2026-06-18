@@ -28,7 +28,7 @@ def rename_files(folder_name):
             
             count += 1
             logging.info(f"Renamed {file} to {new_name}")
-    print("\nFile renamed successfully!") 
+    print("\nFiles renamed successfully!") 
 
 
 # Function to sort files in a folder

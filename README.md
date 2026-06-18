@@ -31,4 +31,14 @@ Automate file management tasks such as renaming, sorting, and ckeaning files usi
 2. Sort Files
 3. Clean Files
 Enter your choice: 1
-Enetr folder path: 
+Enter folder name: Sample_folder
+
+## Sample Output
+bckup.bak -> file_1.bak
+doc1.txt -> file_2.txt
+img1.png -> file_3.png
+img2.png -> file_4.png
+tempry.tmp -> file_5.tmp
+tempry2.tmp -> file_6.tmp
+
+Files renamed successfully!
