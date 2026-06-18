@@ -1,5 +1,10 @@
 import os
 import shutil
+import logging
+
+logging.basicConfig(filename="operations.log",
+                    level=logging.INFO,
+                    format="%(asctime)s - %(message)s")
 
 def rename_files(folder_path):
     files = os.listdir(folder_path)
@@ -18,6 +23,7 @@ def rename_files(folder_path):
             print(f"{file} -> {new_name}")
             
             count += 1
+            logging.info(f"Renamed {file} to {new_name}")
     print("\nFile renamed successfully!") 
 
 
@@ -39,25 +45,34 @@ def sort_files(folder_path):
         if extension in image_extensions:
             if not os.path.exists(image_folder):
                 os.mkdir(image_folder)
+                logging.info(f"Created folder: {image_folder}")
+                
             else:
                 print("Folder already exists.")
             shutil.move(full_path, image_folder)
+            logging.info(f"Moved {file} to {image_folder}")
             print(f"{file} moved to {image_folder}")
             
         elif extension in document_extensions:
             if not os.path.exists(document_folder):
                 os.mkdir(document_folder)
+                logging.info(f"Created folder: {document_folder}")
+                
             else:
                 print("Folder already exists.")
             shutil.move(full_path, document_folder)
+            logging.info(f"Moved {file} to {document_folder}")
             print(f"{file} moved to {document_folder}")
             
         elif extension in video_extensions:
             if not os.path.exists(video_folder):
                 os.mkdir(video_folder)
+                logging.info(f"Created folder: {video_folder}")
+                
             else:
                 print("Folder already exists.")
             shutil.move(full_path, video_folder)
+            logging.info(f"Moved {file} to {video_folder}")
             print(f"{file} moved to {video_folder}")
             
         else:
@@ -76,6 +91,7 @@ def cleanup_files(folder_path):
         if extensions in cleanup_extensions:
             os.remove(full_path)
             print(file + " deleted.")
+            logging.info(f"Deleted {file}")
         else:
             print("No files necessary for cleanup.")
 
